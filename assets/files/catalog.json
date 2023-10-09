@@ -1,0 +1,49 @@
+{
+    "product": [
+        {
+            "id": 0,
+            "name": "Cotton Jeans",
+            "desc": "Comfortable cotton jeans for men in brown color.",
+            "details": "Perfect for casual wear. Available in various sizes.",
+            "price": "50",
+            "color": "Brown",
+            "img": "images/c.jpeg"
+        },
+        {
+            "id": 1,
+            "name": "Slim Fit Jeans",
+            "desc": "Stylish slim fit jeans for men in light brown color.",
+            "details": "Elevate your fashion game. Slim fit design.",
+            "price": "40",
+            "color": "Light Brown",
+            "img": "images/s.jpeg"
+        },
+        {
+            "id": 2,
+            "name": "Party Wear Trousers",
+            "desc": "Trendy party wear trousers for men in brown color.",
+            "details": "Perfect for special occasions. Available in all sizes.",
+            "price": "60",
+            "color": "Brown",
+            "img": "images/c.jpeg"
+        },
+        {
+            "id": 3,
+            "name": "Classic Dress Pants",
+            "desc": "Classic dress pants for men in brown color.",
+            "details": "Ideal for formal events. Comes with a classic design.",
+            "price": "45",
+            "color": "Brown",
+            "img": "images/d.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Casual Khakis",
+            "desc": "Casual khaki pants for men in light brown color.",
+            "details": "Great for everyday wear. Available in multiple shades.",
+            "price": "35",
+            "color": "Light Brown",
+            "img": "images/k.jpeg"
+        }
+    ]
+}

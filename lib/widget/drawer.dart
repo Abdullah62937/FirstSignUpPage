@@ -7,20 +7,41 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
+        padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
+            padding: EdgeInsets.zero,
             child: UserAccountsDrawerHeader(
-                accountName: Text('Abdullah Faisal'),
-                accountEmail: Text('abdullahfaisal48940@gmail.com'),
-                currentAccountPicture: CircleAvatar(backgroundImage: AssetImage('images/abdullah.jpg')),),
+              margin: EdgeInsets.zero,
+              accountName: Text('Abdullah Faisal'),
+              accountEmail: Text('abdullahfaisal48940@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage('images/abdullah.jpg')),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.home),
-            title: Text('Home'),
+            title: Text(
+              'Home',
+              style: TextStyle(color: Colors.black),
+            ),
           ),
           ListTile(
-            leading: Icon(Icons.male),
-            title: Text('About'),
+            leading: Icon(Icons.account_box),
+            title: Text(
+              'About',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ListTile(
+            leading: Icon(Icons.logout_outlined),
+            title: Text(
+              'Sign Out',
+              style: TextStyle(color: Colors.black),
+            ),
           )
         ],
       ),
