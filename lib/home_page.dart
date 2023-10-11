@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
+import 'package:abd_garments/widget/cart.dart';
 import 'package:abd_garments/widget/details.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -37,9 +39,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: 'Catalog App'.text.make(),),
+      appBar: AppBar(title: 'Catalog App'.text.color(context.theme.floatingActionButtonTheme.foregroundColor).make(),
+      backgroundColor: context.theme.canvasColor,),
+      floatingActionButton: FloatingActionButton(
+        onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart())),
+        backgroundColor : context.theme.floatingActionButtonTheme.backgroundColor,
+        child: Icon(CupertinoIcons.cart,color: Colors.white,),),
       drawer: MyDrawer(),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       body:SafeArea(
         child: Container(
           padding: Vx.m32,
@@ -77,29 +84,29 @@ class DisplayProduct extends StatelessWidget {
         child: VxBox(
           child: Row(
             children: [
-              Image.asset(item.img).box.rounded.p8.size(50, 100).color(MyTheme.creamColor).make().p16().w40(context),
+              Image.asset(item.img).box.rounded.p8.size(50, 100).color(context.canvasColor).make().p16().w40(context),
           Expanded(child: 
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              item.name.text.xl2.color(MyTheme.darkBluish).make(),
+              item.name.text.xl2.color(context.theme.floatingActionButtonTheme.foregroundColor).make(),
               item.desc.text.textStyle(context.captionStyle).make(),
               ButtonBar(
                 alignment: MainAxisAlignment.spaceBetween,
               children: [
                 '\$${item.price}'.text.bold.make(),
-                ElevatedButton(onPressed: (){},
+                ElevatedButton(onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart())),
                 style: ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(MyTheme.darkBluish),
+                  backgroundColor: MaterialStateProperty.all(context.theme.floatingActionButtonTheme.backgroundColor),
                   shape: MaterialStateProperty.all(StadiumBorder()) ),
-                child: 'Buy'.text.make(),)
+                child: 'Add to cart'.text.make(),)
               ],
               )
             ],
           ))
           ],
                 )
-            ).white.rounded.make(),
+            ).color(context.cardColor).rounded.make(),
       ),
     );
   }

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:abd_garments/widget/cart.dart';
 import 'package:abd_garments/widget/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -15,19 +16,19 @@ class HomeDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent ,
-        title: 'Catalog App'.text.make(),),
+        title: 'Catalog App'.text.color(context.theme.floatingActionButtonTheme.foregroundColor).make(),),
       bottomNavigationBar: ButtonBar( 
         alignment: MainAxisAlignment.spaceBetween,
             children: [
               '\$${product.price}'.text.bold.xl3.color(Colors.deepPurple).make(),
-              ElevatedButton(onPressed: () {},
+              ElevatedButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart())),
               style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(MyTheme.darkBluish),
+                backgroundColor: MaterialStateProperty.all(context.theme.floatingActionButtonTheme.backgroundColor),
                 shape: MaterialStateProperty.all(StadiumBorder()) ),
-              child: 'Buy'.text.size(16).make(),).wh(100, 50)
+              child: 'Add to cart'.text.size(16).make(),).wh(130, 50)
             ],).p32() ,
       body: Center(
         child: Column(children: [
@@ -37,12 +38,13 @@ class HomeDetails extends StatelessWidget {
             arcType: VxArcType.convey,
             edge: VxEdge.top,
             child: Container(
-              color: Colors.white,
+              width: context.screenWidth,
+              color: context.cardColor,
               child: 
                Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            product.name.text.bold.xl4.color(MyTheme.darkBluish).make(),
+            product.name.text.bold.xl4.color(context.theme.floatingActionButtonTheme.foregroundColor).make(),
             product.desc.text.xl.textStyle(context.captionStyle).make(),
             SizedBox(height: 10,),
             product.details.text.textStyle(context.captionStyle).make(),
@@ -51,7 +53,7 @@ class HomeDetails extends StatelessWidget {
             ),
             )
       )
-        ],).p16(),
+        ],),
       ),
     );
   }
