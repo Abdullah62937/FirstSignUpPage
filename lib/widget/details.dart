@@ -15,6 +15,7 @@ class HomeDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: context.canvasColor,
       appBar: AppBar(
@@ -24,7 +25,7 @@ class HomeDetails extends StatelessWidget {
         alignment: MainAxisAlignment.spaceBetween,
             children: [
               '\$${product.price}'.text.bold.xl3.color(Colors.deepPurple).make(),
-              ElevatedButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>Cart())),
+              ElevatedButton(onPressed: () {},
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(context.theme.floatingActionButtonTheme.backgroundColor),
                 shape: MaterialStateProperty.all(StadiumBorder()) ),
@@ -47,7 +48,7 @@ class HomeDetails extends StatelessWidget {
             product.name.text.bold.xl4.color(context.theme.floatingActionButtonTheme.foregroundColor).make(),
             product.desc.text.xl.textStyle(context.captionStyle).make(),
             SizedBox(height: 10,),
-            product.details.text.textStyle(context.captionStyle).make(),
+            Expanded(child:product.details.text.textStyle(context.captionStyle).make(), ),
           ],
         ).py32(),
             ),

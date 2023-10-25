@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/":(context) => LoginPage(),
         "/Home":(context) => HomePage(),
-        "/Cart":(context) => Cart(),
+        "/Cart":(context) => Cart(items: [],),
       },
     );
   }
